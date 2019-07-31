@@ -3,12 +3,14 @@ import Router from 'vue-router'
 import admincenter from './views/admincenter.vue'
 import Login from './views/Login.vue'
 import Home from './views/Home.vue'
+import Home1 from './views/Home1.vue'
 import Signup from './views/signup.vue'
 import Edituser from './views/edituser'
 import information from './views/information'
 import likelist from './views/likelist'
 import Detail from './views/Detail'
-
+import Mindtwo from './components/Mindtwo.vue'
+import Mindone from './components/Mindone.vue'
 
 Vue.use(Router)
 
@@ -19,7 +21,21 @@ export default new Router({
    {
        path: '/',
        name: 'home',
-       component: Home
+       component: Home,
+       children:[
+         {
+          path: '/',
+          component: Home1,
+         },
+        {
+            path:'mt',
+            component:Mindtwo
+        },
+        {
+            path:'mo',
+            component:Mindone
+        }
+    ]
    },
 	{
       path: '/login',

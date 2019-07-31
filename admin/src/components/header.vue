@@ -1,48 +1,77 @@
 <template>
-	<header>
-		<div class="header-inner">
-			<a href="/" class="logo" data-act="icon-click"></a>
-			<div class="nav">
-				<ul class="navbar">
-					<li><a href="/" data-act="home-click">首页</a></li>
-					<li><a href="/films" data-act="movies-click">电影</a></li>
-					<li><a href="/cinemas" data-act="cinemas-click">影院</a></li>
-					<li><a href="http://www.gewara.com">演出</a></li>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo" data-act="icon-click"></a>
+      <div class="nav">
+        <ul class="navbar">
+          <li @click="dianji(1)" :class="isshow == 1 ? 'active': ''">
+               <router-link to="/">首页</router-link>
+          </li>
+          <li @click="dianji(2)" :class="isshow == 2 ? 'active': ''">
+             <router-link to="/mt">电影</router-link>
+          </li>
+          
+          <li @click="dianji(3)" :class="isshow == 3 ? 'active': ''">
+             <router-link to="/mt">影院</router-link>
+          </li>
+          <li @click="dianji(4)" :class="isshow == 4 ? 'active': ''">
+             <router-link to="/mt">演出</router-link>
+          </li>
 
-					<li><a href="/board" data-act="board-click">榜单</a></li>
-					<li><a href="/news" data-act="hotNews-click">热点</a></li>
-					<li><a href="/edimall">商城</a></li>
-				</ul>
-			</div>
-			<div class="user-info">
-				<div class="user-avatar J-login" v-if="loginState1">
-              <img src="https://p0.meituan.net/movie/7dd82a16316ab32c8359debdb04396ef2897.png">
-              <span class="caret"></span>
-              <ul class="user-menu">
-                <li><a href="/login">登录</a></li>
-				<li><a href="/signup">注册</a></li>
-              </ul>
-            </div>
-			
-			<div class="user-avatar has-login" v-if="loginState2">
-				
-              <img :src=this.imgsrc @click="toCenter">
-              <span class="caret"></span>
-              <ul class="user-menu">
-                <li class="text">
-                  <a href="/admincenter/likelist">喜欢列表</a>
-                </li>
-                <li class="text login-name" title="来瓶97年拉菲"><a href="/admincenter">基本信息</a></li>
-                <li class="text"><a href="/" class="J-logout" @click="logout">退出登录</a></li>
-              </ul>
-            </div>
-			</div>
-			<form action="/query" target="_blank" class="search-form" data-actform="search-click">
-				<input name="kw" class="search" type="search" maxlength="32" placeholder="找影视剧、影人、影院" autocomplete="off" />
-				<input class="submit" type="submit" value="" />
-			</form>
-		</div>
-	</header>
+          <li @click="dianji(5)" :class="isshow == 5 ? 'active': ''">
+             <router-link to="/mo">榜单</router-link>
+          </li>
+          <li @click="dianji(6)" :class="isshow == 6 ? 'active': ''">
+            <router-link to="/mt">热点</router-link>
+          </li>
+          <li @click="dianji(7)" :class="isshow == 7 ? 'active': ''">
+              <router-link to="/mt">商城</router-link>
+          </li>
+        </ul>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar J-login" v-if="loginState1">
+          <img src="https://p0.meituan.net/movie/7dd82a16316ab32c8359debdb04396ef2897.png" />
+          <span class="caret"></span>
+          <ul class="user-menu">
+            <li>
+              <a href="/login">登录</a>
+            </li>
+            <li>
+              <a href="/signup">注册</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="user-avatar has-login" v-if="loginState2">
+          <img src="https://img.meituan.net/avatar/aaa409013d121f00b267eecd7ff347d8175930.jpg" />
+          <span class="caret"></span>
+          <ul class="user-menu">
+            <li class="text">
+              <a href="/profile/orders">我的订单</a>
+            </li>
+            <li class="text login-name" title="来瓶97年拉菲">
+              <a href="javascript:void 0">基本信息</a>
+            </li>
+            <li class="text">
+              <a href="javascript:void 0" class="J-logout" @click="logout">退出登录</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <form action="/query" target="_blank" class="search-form" data-actform="search-click">
+        <input
+          name="kw"
+          class="search"
+          type="search"
+          maxlength="32"
+          placeholder="找影视剧、影人、影院"
+          autocomplete="off"
+        />
+        <input class="submit" type="submit" value />
+      </form>
+    </div>
+  </header>
 </template>
 
 <script>
@@ -54,7 +83,7 @@ export default {
 			loginState1:true,
 			loginState2:false,
 			imgsrc:'',
-			
+			isshow: 1,
 			userinfo: {
 			  name: '',
 			  passwd: ''
@@ -73,6 +102,9 @@ export default {
 		}
 	},
 	methods: {
+    dianji(num) {
+      this.isshow = num;
+    },
 		logout() {
 			this.axios.get('/logout')
 			.then(res => {
@@ -159,7 +191,14 @@ header ul {
 	border: none;
 }
 header .nav .navbar li {
-	float: left;
+  float: left;
+  margin: 0 5px;
+}
+header .nav .active {
+  background-color: red;
+}
+header .nav .navbar li.active a {
+  color: rgb(255, 255, 255);
 }
 header .nav .navbar li a {
 	text-align: center;
@@ -169,6 +208,9 @@ header .nav .navbar li a {
 	width: 70px;
 	font-size: 18px;
 	color: #333;
+}
+header .navbar li a:hover {
+  color: #ef4238;
 }
 header form {
 	float: right;
@@ -184,7 +226,7 @@ header form .search {
 	padding: 0 40px 0 20px;
 	border: 1px solid #ccc;
 	font-size: 14px;
-	border.-radius: 30px;
+	border-radius: 30px;
 	background-color: #faf8fa;
 	overflow: hidden;
 	color: #333;
@@ -277,7 +319,5 @@ header .user-info .user-menu li>a {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-header .nav .navbar li a :hover{
-    color: red;
-}
+
 </style>

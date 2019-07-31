@@ -10,11 +10,12 @@ import axios from 'axios'
 import Header from '@/components/header'
 import Header2 from '@/components/header2'
 import Aside from '@/components/aside'
-
+import Mind from '@/components/Mind.vue'
 
 Vue.component('my-header',Header)
 Vue.component('my-header2',Header2)
 Vue.component('my-aside',Aside)
+Vue.component('my-Mind',Mind)
 axios.defaults.baseURL='http://localhost:81';
 axios.defaults.withCredentials = true;
 Vue.prototype.axios = axios;

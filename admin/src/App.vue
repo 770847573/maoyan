@@ -29,6 +29,7 @@ ul {
 li {
     display: list-item;
     text-align: -webkit-match-parent;
+    list-style: none;
 }
 .el-breadcrumb {
     margin-left: 24%
