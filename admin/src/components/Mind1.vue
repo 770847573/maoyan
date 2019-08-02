@@ -1,7 +1,7 @@
 <template>
   <div class="main-one">
     <div class="panel-haeder">
-      <span class="panel-title">正在热映(64)</span>
+      <span class="panel-title">即将上映(61)</span>
       <div class="panel-more">
         <a href="#">全部</a>
         <span class="el-icon-arrow-right"></span>
@@ -54,17 +54,17 @@
 .panel-haeder .panel-title {
   float: left;
   font-size: 26px;
-  color: #ef4238;
+  color: #2d98f3!important;
 }
 .panel-more {
   font-size: 14px;
   line-height: 16px;
   float: right;
   margin-top: 10px;
-  color: #ef4238;
+  color: #2d98f3!important;
 }
 .panel-more a {
-  color: #ef4238;
+  color: #2d98f3!important;
 }
 /* 电影图片展示开始 */
 

@@ -53,7 +53,7 @@
   </div>
 </template>
 
-<style>
+<style scoped="scoped">
 #bangdan {
   margin-top: 81px;
   width: 100%;

@@ -136,7 +136,7 @@ let localdata = JSON.parse(window.localStorage.getItem('userinfo'))
 };
 </script>
 
-<style>
+<style scoped="scoped">
 .avatar-uploader .el-upload {
   border: 1px dashed #d9d9d9;
   border-radius: 6px;

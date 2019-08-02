@@ -83,7 +83,7 @@
 	}
 </script>
 
-<style>
+<style scoped="scoped">
 	.list-container{
 		float: left;
     margin-left: 200px;

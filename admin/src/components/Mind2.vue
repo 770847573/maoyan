@@ -1,7 +1,7 @@
 <template>
   <div class="main-one">
     <div class="panel-haeder">
-      <span class="panel-title">正在热映(64)</span>
+      <span class="panel-title">热门电影</span>
       <div class="panel-more">
         <a href="#">全部</a>
         <span class="el-icon-arrow-right"></span>

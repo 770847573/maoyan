@@ -1,9 +1,9 @@
 <template>
-  <header>
-    <div class="header-inner">
-      <a href="/" class="logo" data-act="icon-click"></a>
-      <div class="nav">
-        <ul class="navbar">
+	<header>
+		<div class="header-inner">
+			<a href="/" class="logo" data-act="icon-click"></a>
+			<div class="nav">
+				<ul class="navbar">
           <li @click="dianji(1)" :class="isshow == 1 ? 'active': ''">
                <router-link to="/">首页</router-link>
           </li>
@@ -27,51 +27,41 @@
           <li @click="dianji(7)" :class="isshow == 7 ? 'active': ''">
               <router-link to="/mt">商城</router-link>
           </li>
-        </ul>
-      </div>
-      <div class="user-info">
-        <div class="user-avatar J-login" v-if="loginState1">
+				</ul>
+			</div>
+			<div class="user-info">
+				<div class="user-avatar J-login" v-if="loginState1">
           <img src="https://p0.meituan.net/movie/7dd82a16316ab32c8359debdb04396ef2897.png" />
-          <span class="caret"></span>
-          <ul class="user-menu">
+              <span class="caret"></span>
+              <ul class="user-menu">
             <li>
               <a href="/login">登录</a>
             </li>
             <li>
               <a href="/signup">注册</a>
             </li>
-          </ul>
-        </div>
-
-        <div class="user-avatar has-login" v-if="loginState2">
-          <img src="https://img.meituan.net/avatar/aaa409013d121f00b267eecd7ff347d8175930.jpg" />
-          <span class="caret"></span>
-          <ul class="user-menu">
-            <li class="text">
-              <a href="/profile/orders">我的订单</a>
-            </li>
-            <li class="text login-name" title="来瓶97年拉菲">
-              <a href="javascript:void 0">基本信息</a>
-            </li>
-            <li class="text">
-              <a href="javascript:void 0" class="J-logout" @click="logout">退出登录</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <form action="/query" target="_blank" class="search-form" data-actform="search-click">
-        <input
-          name="kw"
-          class="search"
-          type="search"
-          maxlength="32"
-          placeholder="找影视剧、影人、影院"
-          autocomplete="off"
-        />
-        <input class="submit" type="submit" value />
-      </form>
-    </div>
-  </header>
+              </ul>
+            </div>
+			
+			<div class="user-avatar has-login" v-if="loginState2">
+				
+              <img :src=this.imgsrc @click="toCenter">
+              <span class="caret"></span>
+              <ul class="user-menu">
+                <li class="text">
+                  <a href="/admincenter/likelist">喜欢列表</a>
+                </li>
+                <li class="text login-name" title="来瓶97年拉菲"><a href="/admincenter">基本信息</a></li>
+                <li class="text"><a href="/" class="J-logout" @click="logout">退出登录</a></li>
+              </ul>
+            </div>
+			</div>
+			<form action="/query" target="_blank" class="search-form" data-actform="search-click">
+				<input name="kw" class="search" type="search" maxlength="32" placeholder="找影视剧、影人、影院" autocomplete="off" />
+				<input class="submit" type="submit" value="" />
+			</form>
+		</div>
+	</header>
 </template>
 
 <script>
@@ -184,11 +174,11 @@ header .nav {
 	overflow: hidden;
 	float: left;
 }
-header ul {
-	padding: 0;
-	margin: 0;
-	list-style: none;
-	border: none;
+header form, header h3, header input, header li, header ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: none;
 }
 header .nav .navbar li {
   float: left;
@@ -230,6 +220,7 @@ header form .search {
 	background-color: #faf8fa;
 	overflow: hidden;
 	color: #333;
+	outline: none;
 }
 header form .submit {
 	display: inline-block;

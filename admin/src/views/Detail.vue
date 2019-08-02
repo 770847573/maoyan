@@ -23,10 +23,10 @@
 					</div>
 					<div class="action-buyBtn">
 						<div class="action clearfix">
-							<a class="wish" data-wish="false">
+							<a class="wish" data-wish="false" :class="{ active: isActive }">
 								<div>
-									<i class="icon wish-icon"></i>
-									<span class="wish-msg">想看</span>
+									<i class="icon wish-icon" ></i>
+									<span class="wish-msg" @click="addlike">想看</span>
 								</div>
 							</a>
 							<a class="score-btn ">
@@ -135,13 +135,17 @@ export default {
 	data() {
 		return {
 			imax: '',
+			isActive:false,
 			wish: '想看',
 			wished: '已想看',
 			activeName: 'first',
 			filmForm:{},
 			director:[],
-			actors:[]
-			
+			actors:[],
+			likeform:{
+				fid:'',
+				aid:''
+			}
 		};
 	},
 	methods: {
@@ -149,10 +153,28 @@ export default {
 			console.log(tab);
 			console.log(event);
 			// console.log(this.filmForm.director)
+		},
+		addlike(){
+			this.axios.post('/addlike',this.likeform)
+			.then(res=>{
+				if(res.data.r == 'add success'){
+					alert("添加成功")
+					this.isActive = !this.isActive;
+					console.log(this.isActive)
+					return
+				}
+			})
+			.catch(err => {
+			    console.error(err); 
+			})
 		}
 	},
 	mounted() {
 	    //this.$route.query  接受 get 传值， 就是? 后面的值
+		let localdata = JSON.parse(window.localStorage.getItem('userinfo'));
+		let aid = localdata.aid;
+		this.likeform.fid = this.$route.query.fid;
+		this.likeform.aid = aid
 	    this.axios.get('/getfilm',{
 	        params:{
 	            fid:this.$route.query.fid

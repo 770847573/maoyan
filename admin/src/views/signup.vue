@@ -112,7 +112,7 @@
   
 </script>
 
-<style>
+<style scoped="scoped">
 	.signup_body{
 		width: 500px;
 		margin: 50px auto;

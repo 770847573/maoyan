@@ -79,7 +79,7 @@
 	};
 </script>
 
-<style>
+<style scoped="scoped">
 	.info-content .orders-container,
 	.info-content .profile-container {
 		float: left;
@@ -255,7 +255,7 @@
 		height: 30px;
 		display: inline-block;
 		padding-left: 10px;
-		margin-left: -160px;
-		text-align: left;
+		margin-left: -35px;
+    text-align: center;
 	}
 </style>

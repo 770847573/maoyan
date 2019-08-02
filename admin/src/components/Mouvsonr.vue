@@ -36,7 +36,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped="scoped">
 .panel ul {
   list-style: none;
   width: 360px;

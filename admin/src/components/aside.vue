@@ -34,7 +34,7 @@
 	}
 </script>
 
-<style>
+<style scoped="scoped">
 	.info-content .user-profile-nav {
 		position: absolute;
 		top: 0;
