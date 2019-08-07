@@ -1,8 +1,8 @@
 <template>
 	<div class="user-profile-nav">
 		<h1>个人中心</h1>
-		<a href="/likelist" class="orders" :class="active1" @click="changeactive1"><router-link to='/admincenter/likelist'>喜欢列表</router-link></a>
-		<a href="/admincenter" class="profile" :class="active2" @click="changeactive2"><router-link to='/admincenter/'>基本信息</router-link></a>
+		<a class="orders" :class="active1" @click="changeactive1"><router-link to='/center/likelist'>喜欢列表</router-link></a>
+		<a class="profile" :class="active2" @click="changeactive2"><router-link to='/center/'>基本信息</router-link></a>
 	</div>
 </template>
 

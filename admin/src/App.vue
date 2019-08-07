@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    
     <router-view/>
   </div>
 </template>
@@ -28,9 +27,7 @@ li {
 .el-breadcrumb {
     margin-left: 24%
 }
-div{
-	// text-align: left
-}
+
 h3 {
     display: block;
     font-size: 1.17em;
@@ -40,4 +37,5 @@ h3 {
     margin-inline-end: 0px;
     font-weight: bold;
 }
+
 </style>

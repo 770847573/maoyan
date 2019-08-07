@@ -1,7 +1,7 @@
 <template>
 	<div class="list-container">
 		<div class="profile-title">喜欢列表</div>
-		<div class="like-box" v-for="(l,index) in likeData" >
+		<div class="like-box" v-for="(l,index) in likeData" :key="l" >
 			<div class="like-header">
 				<span class="like-title">想看电影</span>
 			</div>

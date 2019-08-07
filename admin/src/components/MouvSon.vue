@@ -10,7 +10,8 @@
 						<i class="fraction">{{ bic }}</i>
 					</div>
 				</div>
-
+				<span class="movie-ver"></span>
+				<div></div>
 				<img :src="ms.poster" @click="todetail"/>
 			</div>
 		</div>
@@ -41,7 +42,7 @@ export default {
 </script>
 <style scoped="scoped">
 .movie {
-	height: 40%;
+	height: 259px;
 	width: 160px;
 	/* border: 1px solid red; */
 	display: inline-flex;
@@ -49,12 +50,13 @@ export default {
 	position: relative;
 }
 .movie:hover {
-	box-shadow: 5px 5px 6px #000;
+	/* box-shadow: 5px 5px 6px #000; */
+	box-shadow:0 0 8px #fff, 0 5px 13px rgba(0,0,0,.07);
 	transform: rotateY(5px) rotateX(3px) scale(0.8);
 	cursor: pointer;
 }
 .movie .movie-poster {
-	height: 90%;
+	height: 220px;
 	width: 100%;
 	position: absolute;
 	top: 0;
@@ -128,14 +130,15 @@ export default {
 
 .movie .purchase {
 	width: 100%;
-	height: 27px;
-	line-height: 27px;
+	height: 39px;
+	line-height: 39px;
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	border: 1px solid #efefef;
 	border-top: 0px;
 	text-align: center;
+	box-sizing: border-box;
 }
 .movie .purchase:hover {
 	background-color: #ef4238;

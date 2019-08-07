@@ -127,6 +127,7 @@
 				</div>
 			</div>
 		</div>
+		<my-footer></my-footer>
 	</div>
 </template>
 
